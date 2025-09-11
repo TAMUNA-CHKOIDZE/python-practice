@@ -8,7 +8,8 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
 
     def book_count(self):
-        return self.book_set.count()
+        # აბრუნებს კონკრეტული ავტორის წიგნების რაოდენობას
+        return self.books.count()  # related_name='books'
 
     class Meta:
         verbose_name = "Author"
@@ -22,7 +23,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     # Many - to - One Relationship(ForeignKey), ერთ ავტორს აქვს ბევრი წიგნი
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name="Author")
+    author = models.ForeignKey(to='Author', on_delete=models.CASCADE, verbose_name="Author", related_name='books')
 
     class Meta:
         verbose_name = "Book"
