@@ -3,9 +3,9 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$/assignment8/project" />
-        <option name="settingsModule" value="project/settings.py" />
-        <option name="manageScript" value="manage.py" />
+        <option name="rootFolder" value="$MODULE_DIR$/assignment11/author_book_admin/authors_books" />
+        <option name="settingsModule" value="$MODULE_DIR$/assignment11/author_book_admin/author_book_admin/settings.py" />
+        <option name="manageScript" value="" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
         <option name="trackFilePattern" value="" />
@@ -15,7 +15,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/assignment8/project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/assignment9/blog_project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/assignment9/testproject" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/assignment10/campus" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/assignment11/author_book_admin" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.13 (homeworks)" jdkType="Python SDK" />
