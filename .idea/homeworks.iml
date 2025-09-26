@@ -3,8 +3,8 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$/assignment11/author_book_admin/authors_books" />
-        <option name="settingsModule" value="$MODULE_DIR$/assignment11/author_book_admin/author_book_admin/settings.py" />
+        <option name="rootFolder" value="$MODULE_DIR$/assignment13" />
+        <option name="settingsModule" value="form_validation_project/form_validation_project/settings.py" />
         <option name="manageScript" value="" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
@@ -19,12 +19,19 @@
       <sourceFolder url="file://$MODULE_DIR$/assignment9/testproject" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/assignment10/campus" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/assignment11/author_book_admin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/assignment13/form_validation_project" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.13 (homeworks)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/assignment13/form_validation_project/templates" />
+        <option value="$MODULE_DIR$/assignment13/form_validation_project/userform/templates" />
+      </list>
+    </option>
   </component>
 </module>

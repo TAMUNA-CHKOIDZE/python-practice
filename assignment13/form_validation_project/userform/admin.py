@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from userform.models import UserSubmission
+
+admin.site.register(UserSubmission)

@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    max-width: 400px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul.messages {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul.messages li {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #a94442;
+}
+
+ul.messages li.success {
+    background-color: #ddffdd;
+    border-left-color: #4CAF50;
+    color: #3c763d;
+}
+
+.errorlist {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+/*submit page*/ /* style.css */
+.success-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+  }
+
+  .success-icon {
+    background-color: #28a745;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+  }
+
+  .success-title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .success-message {
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
+
+  .btn-back {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-back:hover {
+    background-color: #218838;
+  }
