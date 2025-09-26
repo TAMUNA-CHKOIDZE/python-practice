@@ -52,6 +52,26 @@ To get the project locally, clone the full repository and navigate to the assign
 * **Name**: This field is required and cannot be left empty.
 * **Email**: Must be a valid email format (e.g., `example@mail.com`).
 
+
+## 🙋‍♀️ My Contribution
+
+In addition to the basic validation rules, I added custom logic to improve input accuracy:
+
+* The **name** must be **at least 2 characters long**
+* It may contain only:
+  - **Georgian letters** (`ა-ჰ`)
+  - **English letters** (`A–Z`, `a–z`)
+  - **Spaces**
+  - **Hyphens** (`-`)
+
+✅ Examples of valid names:
+- `გიორგი`
+- `Nika`
+- `გიორგი-ნიკა`
+
+This validation was not part of the original assignment.  
+I added it to reflect a real-world data-checking scenario and make the form more robust.
+
 ## 💬 Feedback Messages
 
 * A success message is shown when the form is submitted with valid data.
