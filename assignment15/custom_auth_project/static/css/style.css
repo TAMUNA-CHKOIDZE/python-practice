@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: "Fira Code", monospace;
+}
+
+header {
+    padding: 20px 80px;
+    background: #490057;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+}
+
+.header-nav-items {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.header-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.fa-angle-down {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.menu-link {
+    color: #ffffff;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.log-out {
+    color: #e7c3f3;
+    font-size: 18px;
+}
+
+.my-account {
+    color: #FBB03B;
+    font-size: 18px;
+}
+
+.bg-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/purple-plant.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.form-container {
+    width: 30%;
+    background: rgba(43, 1, 50, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    border: 1px solid #e8a1f6;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.auth-input {
+    width: 100%;
+    height: 48px;
+    padding-left: 12px;
+    outline: none;
+    border: 1px solid #e8a1f6;
+    border-radius: 8px;
+    background-color: transparent !important;
+    color: #ffffff;
+    transition: background-color 9999s ease-in-out 0s; /* ამის წყალობით autofill ფერი ქრება */
+}
+
+.auth-input::placeholder {
+    color: #ffffff;
+}
+
+.auth-input:focus {
+    background-color: transparent !important;
+    outline: none;
+}
+
+/* Chrome-ის autofill-ის გასაუქმებლად */
+.auth-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 9999s ease-in-out 0s !important;
+}
+
+/* Firefox-ის autofill-ის გასაუქმებლად  */
+input:-moz-autofill {
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    -moz-text-fill-color: #ffffff !important;
+}
+
+.form-error {
+    color: #f03ea8;
+    font-size: 14px;
+}
+
+.field-error p {
+    color: #f03ea8;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.form-error {
+    color: #f03ea8;
+    font-size: 14px;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #e8a1f6;
+    color: #490057;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto 20px;
+    cursor: pointer;
+}
+
+.question {
+    color: #e8a1f6;
+    text-align: center;
+}
+
+.question a {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.question a:hover {
+    text-decoration: 1px solid underline #ffffff;
+    text-underline-offset: 5px;
+}
+
+.home-bgImg-container {
+    width: 100%;
+    height: 90vh;
+    background-image: url("../img/background-home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 120px 60px;
+}
+
+.home-bgImg-container h1 {
+    color: #490057;
+    font-weight: bold;
+}
+
+.home-bgImg-container h5 {
+    margin-top: 32px;
+    color: #ffffff;
+}
+
+.home-bgImg-container button {
+    margin-top: 32px;
+    width: 180px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #490057;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+
