@@ -57,7 +57,13 @@ class CustomLoginForm(AuthenticationForm):
 
 
 class PasswordResetRequestForm(forms.Form):
-    email = forms.EmailField()
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={
+            'class': 'auth-input',
+            'placeholder': 'Enter your email'
+        }),
+        label=""
+    )
 
     def clean_email(self):
         email = self.cleaned_data["email"]
@@ -67,8 +73,16 @@ class PasswordResetRequestForm(forms.Form):
 
 
 class SetNewPasswordForm(forms.Form):
-    new_password1 = forms.CharField(widget=forms.PasswordInput)
-    new_password2 = forms.CharField(widget=forms.PasswordInput)
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'auth-input',
+        'placeholder': 'New Password'
+    }),
+        label="")
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'auth-input',
+        'placeholder': 'Confirm New Password'
+    }),
+        label="")
 
     def clean(self):
         cleaned_data = super().clean()

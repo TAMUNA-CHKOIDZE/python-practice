@@ -23,10 +23,10 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <p>Forgot Password?<a href="{% url 'password_reset' %}">Reset Password</a>.</p>
+                <p class="text">Forgot Password? <a href="{% url 'password_reset' %}">Reset Password</a></p>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
-            <p class="question">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+            <p class="text">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
         </div>
     </div>
 {% endblock %}

@@ -77,8 +77,9 @@ header {
     background-position: center;
 }
 
+
 .form-container {
-    width: 30%;
+    width: 40%;
     background: rgba(43, 1, 50, 0.7);
     backdrop-filter: blur(5px);
     border-radius: 20px;
@@ -88,7 +89,7 @@ header {
 
 .title {
     color: #ffffff;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 40px;
     text-align: center;
@@ -97,7 +98,12 @@ header {
 .auth-form {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     row-gap: 24px;
+}
+
+.form-group {
+    width: 100%;
 }
 
 .auth-input {
@@ -164,17 +170,14 @@ input:-moz-autofill {
     cursor: pointer;
 }
 
-.question {
+.text {
     color: #e8a1f6;
     text-align: center;
 }
 
-.question a {
+.text a {
     color: #ffffff;
     font-size: 18px;
-}
-
-.question a:hover {
     text-decoration: 1px solid underline #ffffff;
     text-underline-offset: 5px;
 }
@@ -213,6 +216,36 @@ input:-moz-autofill {
 }
 
 
+/*passwor reset ------------ */
+.reset-bg-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/reset-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
+.reset-content {
+    width: 40%;
+    background: rgba(43, 1, 50, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    border: 1px solid #e8a1f6;
+    box-shadow: 0 0 5px #e8a1f6, 0 0 10px #e8a1f6, 0 0 40px #e8a1f6;
+}
 
+.small-title {
+    font-size: 28px;
+}
 
+.subtitle {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}

@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -25,7 +25,7 @@ class PasswordResetRequestView(View):
             # Generate reset link
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = custom_password_reset_token.make_token(user)
-            reset_link = f"http://127.0.0.1:8000/user/reset/{uid}/{token}/"  # ლოკალჰოსტის მისამრთი
+            reset_link = f"http://127.0.0.1:8000/accounts/reset/{uid}/{token}/"  # ლოკალჰოსტის მისამრთი
 
             # Send email
             subject = "Password Reset Request"
@@ -77,7 +77,8 @@ class PasswordResetConfirmView(View):
                 user.set_password(new_password)
                 user.save()
                 login(request, user)  # optional
-                return render(request, template_name="password_reset/password_reset_complete.html")
+                # return render(request, template_name="password_reset/password_reset_complete.html")
+                return redirect('home')
 
         return render(request, template_name="password_reset/password_reset_confirm.html", context={
             "form": form,
