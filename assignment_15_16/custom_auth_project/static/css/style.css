@@ -17,6 +17,12 @@ body {
     font-family: "Fira Code", monospace;
 }
 
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
 header {
     padding: 20px 80px;
     background: #490057;

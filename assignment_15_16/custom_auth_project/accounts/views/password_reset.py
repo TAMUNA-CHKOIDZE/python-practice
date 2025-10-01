@@ -2,6 +2,7 @@ from django.contrib.auth import login
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views import View
@@ -78,7 +79,10 @@ class PasswordResetConfirmView(View):
                 user.save()
                 login(request, user)  # optional
                 # return render(request, template_name="password_reset/password_reset_complete.html")
-                return redirect('home')
+                # return redirect('home')
+                # confetti-ის გამოჩენა
+                url = reverse('home') + '?confetti=1'
+                return redirect(url)
 
         return render(request, template_name="password_reset/password_reset_confirm.html", context={
             "form": form,
