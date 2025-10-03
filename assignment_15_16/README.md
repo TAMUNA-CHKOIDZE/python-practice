@@ -37,7 +37,7 @@ logout, session management, and password reset functionality.
    To get the project locally, clone the full repository and navigate to the assignment folder:
    ```bash
    git clone https://github.com/TAMUNA-CHKOIDZE/python-practice.git
-   cd python-practice/assignment15
+   cd python-practice/assignment_15_16
     ```
 
 2. Create and Activate Virtual Environment
