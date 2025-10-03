@@ -6,4 +6,3 @@ class BookSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=100)
     published_date = serializers.DateField()
     author = serializers.CharField(max_length=100)
-    is_deleted = serializers.BooleanField(required=False)

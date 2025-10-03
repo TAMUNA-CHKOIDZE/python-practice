@@ -1,9 +1,7 @@
 from django.urls import path
-from django.http import HttpResponse
 
-def test_view(request):
-    return HttpResponse("Books app is working!")
+from books.views import books_list
 
 urlpatterns = [
-    path('', test_view),
+    path('books_list/', books_list, name='books_list'),
 ]
