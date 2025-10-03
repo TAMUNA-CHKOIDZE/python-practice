@@ -24,7 +24,7 @@ validation to ensure correct input.
 To get the project locally, clone the full repository and navigate to the assignment folder:
    ```bash
    git clone https://github.com/TAMUNA-CHKOIDZE/python-practice.git
-   cd python-practice/assignment13
+   cd python-practice/assignment_13
    ```
 
 
