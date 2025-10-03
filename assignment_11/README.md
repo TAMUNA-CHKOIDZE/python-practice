@@ -15,11 +15,11 @@ This project demonstrates how to register and customize Django models in the adm
 
 ## ⚙️ Setup Instructions
 
-1. **Clone the repository**:
-
+1. Clone the repository
+To get the project locally, clone the full repository and navigate to the assignment folder:
    ```bash
    git clone https://github.com/TAMUNA-CHKOIDZE/python-practice.git
-   cd python-practice
+   cd python-practice/assignment_11
    ```
 
 2. **Go to the assignment folder** (for this task: `assignment11`):
