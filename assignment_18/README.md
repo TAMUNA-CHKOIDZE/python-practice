@@ -1,75 +1,61 @@
 
 # 🛠️ Flexible Article API with ViewSets and Dynamic Serializers
 
-This project demonstrates how to build a flexible and powerful RESTful API in Django using **ViewSets**, **ModelSerializers with dynamic fields**, and **DRF routers**.
-
-The main feature is the ability to dynamically include specific fields in the API response via query parameters like `?fields=title,author`.
+This Django REST Framework-based project demonstrates how to build a flexible API using `ViewSets`, dynamic `ModelSerializers`, and `DefaultRouter`. The API allows users to request only specific fields in list/detail views, handle all CRUD operations, and supports soft-deletion of articles.
 
 ---
 
-## 📦 Features
+## ✅ Requirements
 
-- Full CRUD operations for an `Article` model
-- Dynamic fields in serializers using `?fields=` query parameter
-- Clean URL routing using `DefaultRouter` from Django REST Framework
-
----
-
-## 🧩 Model Structure
-
-The API is built around a simple `Article` model with the following fields:
-
-```python
-class Article(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    author = models.CharField(max_length=100)
-    published = models.DateTimeField(auto_now_add=True)
-```
+* Python 3.13.5  
+* Django 5.2.7  
+* djangorestframework 3.16.1  
 
 ---
 
-## 🔄 API Behavior
+## 🚀 Getting Started
 
-### 🔍 Dynamic Field Filtering
+### 1. Clone the repository
 
-You can filter the fields returned by the API using the `?fields=` query parameter:
+To get the project locally, clone the full repository and navigate to the assignment folder:
 
-* `GET /articles/?fields=title,author`
-  → returns only the `title` and `author` of each article.
+```bash
+git clone https://github.com/TAMUNA-CHKOIDZE/python-practice.git
+cd python-practice/assignment_18
+````
 
-* `GET /articles/1/`
-  → returns **all fields** of the article with ID 1.
-
-* `POST /articles/`
-  → creates a new article (send full data in request body).
-
----
-
-## 🛠️ Installation & Setup
-
-1. Clone the repository  
-   To get the project locally, clone the full repository and navigate to the assignment folder:
-   ```bash
-   git clone https://github.com/TAMUNA-CHKOIDZE/python-practice.git
-   cd python-practice/assignment_18
-    ```
-
-2. **Set up a virtual environment and install dependencies**
+### 2. Create and activate virtual environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-3. **Apply migrations**
+If `requirements.txt` is missing, manually install:
+
+```bash
+pip install Django==5.2.7 djangorestframework==3.16.1
+```
+
+### 4. Apply migrations
 
 ```bash
 python manage.py migrate
 ```
 
-4. **Run the development server**
+### 5. Create superuser (optional)
+
+```bash
+python manage.py createsuperuser
+```
+
+### 6. Run the server
 
 ```bash
 python manage.py runserver
@@ -77,131 +63,136 @@ python manage.py runserver
 
 ---
 
-## 🧪 Example Requests
+## 📦 Project Structure
 
-### ✅ Get all articles (default/full response)
+```bash
+assignment_18/
+├── project/
+│   ├── articles/
+│   │   ├── migrations/
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── views.py
+│   │   └── urls.py
+│   ├── project/
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   └── manage.py
+├── requirements.txt
+└── README.md
+```
 
-```http
+---
+
+## 📚 Functionality Overview
+
+### 🔧 Model
+
+The `Article` model contains:
+
+* `title` – CharField
+* `content` – TextField
+* `author` – CharField
+* `published_date` – DateTimeField (auto_now_add)
+* `article_deleted` – BooleanField (for soft delete)
+
+### 📤 Serializer
+
+The `ArticleSerializer` inherits from a `DynamicFieldsModelSerializer`, which allows dynamic field filtering using query parameters like:
+
+```
+?fields=title,author
+```
+
+This enables you to return only the requested fields in both list and detail views.
+
+### 🔄 ViewSet
+
+`ArticlesViewSet` supports:
+
+* Dynamic field selection based on request context.
+* Soft-deletion via the `destroy` method (marks `article_deleted=True` instead of deleting).
+* Default queryset excludes deleted articles.
+
+---
+
+## 🔍 Example API Requests
+
+### List Articles (Excludes `content` field by default):
+
+```
 GET /articles/
 ```
 
-### ✅ Get only selected fields
+### List Articles with Specific Fields:
 
-```http
+```
 GET /articles/?fields=title,author
 ```
 
-### ✅ Get single article by ID
+### Retrieve Full Article by ID:
 
-```http
+```
 GET /articles/1/
 ```
 
-### ✅ Create a new article
+### Retrieve Specific Fields in Detail View:
 
-```http
+```
+GET /articles/1/?fields=title,published_date
+```
+
+### Create an Article:
+
+```
 POST /articles/
 Content-Type: application/json
 
 {
-  "title": "Hello World",
-  "content": "This is a new article.",
+  "title": "New Article",
+  "content": "This is the content.",
   "author": "John Doe"
 }
 ```
 
----
-
-## 📁 File Structure Overview
+### Soft Delete Article:
 
 ```
-project/
-├── articles/
-│   ├── models.py         # Article model
-│   ├── serializers.py    # Dynamic serializer logic
-│   ├── views.py          # ViewSet with dynamic serializer
-│   └── urls.py           # Router-based URL config
-├── project/
-│   └── settings.py       # Standard Django settings
-├── manage.py
-└── README.md             # This file
+DELETE /articles/1/
 ```
 
 ---
 
-## 🧠 How It Works
+## 🛠 Admin Panel
 
-### Dynamic Serializer Logic
+To manage articles via the Django admin interface:
 
-In `serializers.py`, we override the `__init__` method to accept a `fields` parameter:
-
-```python
-class DynamicArticleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Article
-        fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        fields = kwargs.pop('fields', None)
-        super().__init__(*args, **kwargs)
-
-        if fields is not None:
-            allowed = set(fields)
-            existing = set(self.fields)
-            for field_name in existing - allowed:
-                self.fields.pop(field_name)
-```
-
-In `views.py`, we extract the `fields` from the request:
-
-```python
-class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Article.objects.all()
-    serializer_class = DynamicArticleSerializer
-
-    def get_serializer(self, *args, **kwargs):
-        fields = self.request.query_params.get('fields')
-        if fields:
-            fields = [f.strip() for f in fields.split(',')]
-            kwargs['fields'] = fields
-        return super().get_serializer(*args, **kwargs)
-```
+1. Run the server: `python manage.py runserver`
+2. Open: `http://127.0.0.1:8000/admin/`
+3. Login with your superuser credentials
 
 ---
 
-## 🔗 Routes
+## 🧪 Testing Tips
 
-Using `DefaultRouter` or `SimpleRouter`, routes are auto-generated like:
-
-```
-/articles/       -> List & Create
-/articles/{id}/  -> Retrieve, Update, Delete
-```
+* Use **Postman** or **cURL** to test dynamic field querying.
+* Articles marked as `article_deleted=True` will not be listed or retrieved.
 
 ---
 
-## ✅ Requirements
+## 📝 Notes
 
-* Python 3.13.5
-* Django 5.2.7
-* Django REST Framework
-
-Install dependencies using:
-
-```bash
-pip install django djangorestframework
-```
+* No pagination or permissions are added, but this project can be extended with those features.
+* Using `exclude = ['article_deleted']` in the serializer ensures it's not exposed via the API.
 
 ---
 
-## 📚 License
+## 📫 Author
 
-This project is for educational purposes. Free to use and modify.
+**Tamuna Chkoidze**
+[GitHub Repository](https://github.com/TAMUNA-CHKOIDZE/python-practice)
 
----
-
-## 🙋‍♂️ Need Help?
-
-Feel free to open an issue or reach out with questions!
-
-```
