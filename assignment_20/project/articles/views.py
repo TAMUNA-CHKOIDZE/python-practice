@@ -11,5 +11,6 @@ class ArticleViewSet(viewsets.ModelViewSet):
             return ArticleListSerializer
         return ArticleDetailSerializer
 
-
-
+    # perform_create საშუალებს გვაძლევს, რომ ავტორიზებული მომხმარებელი რომელიც შემოსულია და ქმნის article ობიეტქს ავტომატურად გახდეს სტატიის ავტორი
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
